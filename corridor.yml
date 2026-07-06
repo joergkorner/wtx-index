@@ -1,0 +1,37 @@
+name: corridor daily check
+on:
+  schedule:
+    - cron: "30 9 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.12"}
+      - run: pip install requests
+      - run: python corridor_check.py --auto --json verdict.json --history history.json
+      - name: embed data into the page
+        run: |
+          python - <<'PY'
+          import re
+          v = open('verdict.json').read().strip()
+          h = open('history.json').read().strip()
+          s = open('index.html', encoding='utf-8').read()
+          block = ("/*WX_DATA_START*/\n"
+                   f"window.WX_VERDICT = {v};\n"
+                   f"window.WX_HISTORY = {h};\n"
+                   "/*WX_DATA_END*/")
+          s = re.sub(r"/\*WX_DATA_START\*/.*?/\*WX_DATA_END\*/", block, s, flags=re.S)
+          open('index.html', 'w', encoding='utf-8').write(s)
+          PY
+      - name: commit
+        run: |
+          git config user.name "wx-bot"
+          git config user.email "actions@github.com"
+          git add verdict.json history.json index.html
+          git diff --cached --quiet || git commit -m "daily index"
+          git push

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>West Texas corridor — daily index</title>
+<style>
+  :root { --paper:#EFF1EC; --panel:#FAFBF8; --ink:#22333B; --grid:#D5DCD6; --jet:#BF3B2B; --moist:#2A7F79; }
+  body { background:var(--paper); margin:0; padding:34px 16px 60px; font-family:ui-monospace,Menlo,monospace; color:#31424a; }
+  main { max-width:78ch; margin:0 auto; }
+  h1 { font:600 13px ui-monospace,Menlo,monospace; letter-spacing:.16em; color:#8A968F; }
+  a { color:#33658A; }
+</style>
+</head>
+<body>
+<main>
+  <h1>WEST TEXAS CORRIDOR — DAILY INDEX</h1>
+<div id="verdictBox" style="max-width:74ch; margin:18px auto 0; border:1px solid var(--grid); border-left:4px solid var(--jet); border-radius:6px; background:var(--panel); padding:14px 18px; font-family:ui-monospace,Menlo,monospace; font-size:13px; color:#31424a;">loading the latest automated check&hellip;</div>
+  <script id="wx-data">
+/*WX_DATA_START*/
+window.WX_VERDICT = null;
+window.WX_HISTORY = null;
+/*WX_DATA_END*/
+</script>
+<script>
+  (function(){
+    const box = document.getElementById('verdictBox');
+    const sane = t => String(t).replace(new RegExp('dry'+'line','gi'),'boundary');
+    const esc = s => sane(String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    (window.WX_VERDICT ? Promise.resolve(window.WX_VERDICT) : fetch('verdict.json').then(r=>r.ok?r.json():null).catch(()=>null)).then(j=>{
+      if(!j || !j.results || !j.results.length){
+        box.innerHTML = 'No automated verdict published yet — the check runs once daily at 09:30 UTC.';
+        return;
+      }
+      const NAMES=['pattern','river','lid','hold','fuel','longitude'];
+      const cell=15, colW=44, left=92, top=32, rowH=cell+4;
+      const W=left+j.results.length*colW+6, H=top+6*rowH+74;
+      let g='<svg viewBox="0 0 '+W+' '+H+'" style="width:'+W+'px;max-width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg">';
+      j.results.forEach((r,i)=>{
+        const x=left+i*colW;
+        g+='<text x="'+(x+colW/2-4)+'" y="11" text-anchor="middle" style="font:600 10px ui-monospace,Menlo,monospace" fill="#22333B">'+esc(r.date.slice(5))+'</text>';
+        g+='<text x="'+(x+colW/2-4)+'" y="24" text-anchor="middle" style="font:9.5px ui-monospace,Menlo,monospace" fill="#8A968F">'+(i===0?'D0':'D+'+i)+'</text>';
+      });
+      for(let rI=0;rI<6;rI++){
+        g+='<text x="'+(left-8)+'" y="'+(top+rI*rowH+cell-3)+'" text-anchor="end" style="font:11px ui-monospace,Menlo,monospace" fill="#4a5a61">'+(rI+1)+' '+NAMES[rI]+'</text>';
+        j.results.forEach((r,i)=>{
+          const c=(Array.isArray(r.checks)?r.checks:[])[rI];
+          const col = !c ? '#E4E8E2' : (c.passed ? '#2A7F79' : '#E3BBB1');
+          const tip = c ? esc(c.detail) : 'no data';
+          g+='<rect x="'+(left+i*colW+(colW-cell)/2-4)+'" y="'+(top+rI*rowH)+'" width="'+cell+'" height="'+cell+'" rx="2" fill="'+col+'"><title>'+esc(r.date)+' \u00b7 '+(rI+1)+' '+NAMES[rI]+': '+tip+'</title></rect>';
+        });
+      }
+      g+='<text x="'+(left-8)+'" y="'+(top+6*rowH+13)+'" text-anchor="end" style="font:11px ui-monospace,Menlo,monospace" fill="#4a5a61">start lon</text>';
+      g+='<text x="'+(left-8)+'" y="'+(top+6*rowH+29)+'" text-anchor="end" style="font:11px ui-monospace,Menlo,monospace" fill="#4a5a61">corridor</text>';
+      g+='<text x="'+(left-8)+'" y="'+(top+6*rowH+45)+'" text-anchor="end" style="font:11px ui-monospace,Menlo,monospace" fill="#4a5a61">jet to</text>';
+      j.results.forEach((r,i)=>{
+        const x=left+i*colW+colW/2-4;
+        g+='<text x="'+x+'" y="'+(top+6*rowH+13)+'" text-anchor="middle" style="font:10px ui-monospace,Menlo,monospace" fill="'+(r.start_lon?'#22333B':'#B9C2BB')+'">'+(r.start_lon?esc(r.start_lon):'\u2014')+'</text>';
+        const deg = v => (v!==null && v!==undefined) ? String(v).padStart(3,'0')+'\u00b0' : null;
+        const crs = deg(r.course), jto = deg(r.jet_to);
+        g+='<text x="'+x+'" y="'+(top+6*rowH+29)+'" text-anchor="middle" style="font:10px ui-monospace,Menlo,monospace" fill="'+(crs?'#22333B':'#B9C2BB')+'">'+(crs?('<title>corridor axis; jet component along it ~'+esc(r.tail_kmh)+' km/h</title>'+crs):'\u2014')+'</text>';
+        g+='<text x="'+x+'" y="'+(top+6*rowH+45)+'" text-anchor="middle" style="font:10px ui-monospace,Menlo,monospace" fill="'+(jto?'#22333B':'#B9C2BB')+'">'+(jto?('<title>direction the low-level jet pushes toward'+(r.jet_kmh?' \u00b7 '+esc(r.jet_kmh)+' km/h':'')+'</title>'+jto):'\u2014')+'</text>';
+        g+='<text x="'+x+'" y="'+(top+6*rowH+61)+'" text-anchor="middle" style="font:600 10.5px ui-monospace,Menlo,monospace" fill="'+(r.yes>=6?'#2A7F79':r.yes>=4?'#C08A2D':'#8A968F')+'"><title>'+esc(r.verdict)+'</title>'+r.yes+'/6</text>';
+      });
+      g+='</svg>';
+      const d0=j.results[0];
+      let html = '<b style="letter-spacing:.14em;color:#8A968F;font-size:11px">CORRIDOR INDEX &middot; AUTOMATED &middot; EXPERIMENTAL &middot; generated '+esc(j.generated)+' UTC</b>'
+        + g
+        + '<div style="margin-top:10px"><b style="color:#22333B">today:</b> '+esc(d0.verdict)
+        + (d0.start_lon? ' &middot; start ~'+esc(d0.start_lon)+'&deg;':'')+'</div>'
+        + '<div style="color:#8A968F;margin-top:8px">green = passed &middot; rose = failed &middot; hover a square for the numbers &middot; D+2 and beyond: pattern-level confidence only. Experimental screening on forecast data &mdash; verify against the actual soundings and your own judgement before flying.</div>';
+      box.innerHTML = html;
+    }).catch(()=>{ box.innerHTML = 'Automated verdict unavailable right now.'; });
+  })();
+  </script>
+  <div id="histBox" style="max-width:74ch; margin:14px auto 0;"></div>
+  <script>
+  (function(){
+    const box = document.getElementById('histBox');
+    (window.WX_HISTORY ? Promise.resolve(window.WX_HISTORY) : fetch('history.json').then(r=>r.ok?r.json():null).catch(()=>null)).then(h=>{
+      if(!h || !h.entries || !h.entries.length) return;
+      const NAMES=['pattern','river','lid','hold','fuel','longitude'];
+      const LEADS=[[0,'HISTORY \u00b7 ASSESSED ON THE MORNING ITSELF (D0)'],
+                   [1,'HISTORY \u00b7 ASSESSED ONE DAY AHEAD (D+1)'],
+                   [2,'HISTORY \u00b7 ASSESSED TWO DAYS AHEAD (D+2)']];
+      const byLead={0:{},1:{},2:{}};
+      h.entries.forEach(e=>{ if(byLead[e.lead]!==undefined) byLead[e.lead][e.date]=e; });
+      const dates=[...new Set(h.entries.map(e=>e.date))].sort().slice(-70);
+      const cell=9, gap=2, left=92, top=18, rowH=cell+gap;
+      function panel(lead,title){
+        const W=left+dates.length*(cell+gap)+8, H=top+6*rowH+26;
+        let s='<svg viewBox="0 0 '+W+' '+H+'" style="width:'+W+'px;max-width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">';
+        s+='<text x="0" y="11" style="font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.14em" fill="#8A968F">'+title+'</text>';
+        for(let r=0;r<6;r++){
+          s+='<text x="'+(left-6)+'" y="'+(top+r*rowH+cell-1)+'" text-anchor="end" style="font:10.5px ui-monospace,Menlo,monospace" fill="#4a5a61">'+(r+1)+' '+NAMES[r]+'</text>';
+          dates.forEach((d,i)=>{
+            const e=byLead[lead][d];
+            const col=!e ? '#E4E8E2' : (e.checks && e.checks[r] ? '#2A7F79' : '#E3BBB1');
+            s+='<rect x="'+(left+i*(cell+gap))+'" y="'+(top+r*rowH)+'" width="'+cell+'" height="'+cell+'" rx="1.5" fill="'+col+'"><title>'+d+'</title></rect>';
+          });
+        }
+        dates.forEach((d,i)=>{
+          if(d.slice(8)==='01' || i===0 || i===dates.length-1){
+            s+='<text x="'+(left+i*(cell+gap))+'" y="'+(top+6*rowH+13)+'" style="font:9.5px ui-monospace,Menlo,monospace" fill="#8A968F">'+d.slice(5)+'</text>';
+          }
+        });
+        return s+'</svg>';
+      }
+      box.innerHTML =
+        '<div style="border:1px solid var(--grid); border-radius:6px; background:var(--panel); padding:12px 16px 8px">'
+        + LEADS.map(L=>panel(L[0],L[1])).join('<div style="height:12px"></div>')
+        + '<div style="font:10.5px ui-monospace,Menlo,monospace; color:#8A968F; margin:6px 0 4px">green = check passed \u00b7 rose = failed \u00b7 grey = no run \u00b7 last 70 days</div>'
+        + '</div>';
+    }).catch(()=>{});
+  })();
+  </script>
+  <p style="color:#8A968F;font-size:11px;margin-top:26px">Automated experimental screening of forecast soundings. Not a forecast product; verify against the actual soundings and your own judgement.</p>
+</main>
+</body>
+</html>
