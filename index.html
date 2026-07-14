@@ -20,23 +20,23 @@
   <script id="wx-data">
 /*WX_DATA_START*/
 window.WX_VERDICT = {
- "generated": "2026-07-13T12:25+00:00",
+ "generated": "2026-07-14T11:13+00:00",
  "results": [
   {
-   "date": "2026-07-13",
+   "date": "2026-07-14",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
      "passed": false,
-     "detail": "west-to-east MSLP rise +1.1 hPa -> no trough signal"
+     "detail": "west-to-east MSLP rise +1.0 hPa -> no trough signal"
     },
     {
      "no": 2,
      "name": "river",
      "passed": false,
-     "detail": "max low-level wind 24 km/h from 215 deg at 718 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
+     "detail": "max low-level wind 21 km/h from 61 deg at 133 m AGL (lon -102.5) - want >=35 km/h from 140-220 deg"
     },
     {
      "no": 3,
@@ -66,26 +66,26 @@ window.WX_VERDICT = {
    "yes": 0,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 24,
+   "jet_kmh": 21,
    "course": null,
-   "jet_to": 35,
+   "jet_to": 241,
    "tail_kmh": null
   },
   {
-   "date": "2026-07-14",
+   "date": "2026-07-15",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
      "passed": true,
-     "detail": "west-to-east MSLP rise +1.6 hPa -> lee trough in the west"
+     "detail": "west-to-east MSLP rise +1.7 hPa -> lee trough in the west"
     },
     {
      "no": 2,
      "name": "river",
      "passed": false,
-     "detail": "max low-level wind 20 km/h from 194 deg at 472 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
+     "detail": "max low-level wind 27 km/h from 98 deg at 369 m AGL (lon -102.5) - want >=35 km/h from 140-220 deg"
     },
     {
      "no": 3,
@@ -115,58 +115,9 @@ window.WX_VERDICT = {
    "yes": 1,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 20,
+   "jet_kmh": 27,
    "course": null,
-   "jet_to": 14,
-   "tail_kmh": null
-  },
-  {
-   "date": "2026-07-15",
-   "hour": 12,
-   "checks": [
-    {
-     "no": 1,
-     "name": "pattern",
-     "passed": true,
-     "detail": "west-to-east MSLP rise +2.0 hPa -> lee trough in the west"
-    },
-    {
-     "no": 2,
-     "name": "river",
-     "passed": false,
-     "detail": "max low-level wind 34 km/h from 146 deg at 523 m AGL (lon -103.5) - want >=35 km/h from 140-220 deg"
-    },
-    {
-     "no": 3,
-     "name": "lid",
-     "passed": false,
-     "detail": "no capping inversion found"
-    },
-    {
-     "no": 4,
-     "name": "hold",
-     "passed": false,
-     "detail": "no lid - not evaluated"
-    },
-    {
-     "no": 5,
-     "name": "fuel",
-     "passed": false,
-     "detail": "no lid - not evaluated"
-    },
-    {
-     "no": 6,
-     "name": "longitude",
-     "passed": true,
-     "detail": "boundary near -100.0 deg -> start the line around -99.0 deg"
-    }
-   ],
-   "yes": 2,
-   "verdict": "pattern not present",
-   "start_lon": -99.0,
-   "jet_kmh": 34,
-   "course": null,
-   "jet_to": 326,
+   "jet_to": 278,
    "tail_kmh": null
   },
   {
@@ -177,13 +128,13 @@ window.WX_VERDICT = {
      "no": 1,
      "name": "pattern",
      "passed": true,
-     "detail": "west-to-east MSLP rise +3.1 hPa -> lee trough in the west"
+     "detail": "west-to-east MSLP rise +3.0 hPa -> lee trough in the west"
     },
     {
      "no": 2,
      "name": "river",
      "passed": true,
-     "detail": "max low-level wind 38 km/h from 193 deg at 464 m AGL (lon -98.5)"
+     "detail": "max low-level wind 46 km/h from 173 deg at 746 m AGL (lon -99.5)"
     },
     {
      "no": 3,
@@ -213,9 +164,9 @@ window.WX_VERDICT = {
    "yes": 2,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 38,
+   "jet_kmh": 46,
    "course": null,
-   "jet_to": 13,
+   "jet_to": 353,
    "tail_kmh": null
   },
   {
@@ -226,13 +177,13 @@ window.WX_VERDICT = {
      "no": 1,
      "name": "pattern",
      "passed": true,
-     "detail": "west-to-east MSLP rise +5.0 hPa -> lee trough in the west"
+     "detail": "west-to-east MSLP rise +4.7 hPa -> lee trough in the west"
     },
     {
      "no": 2,
      "name": "river",
      "passed": true,
-     "detail": "max low-level wind 60 km/h from 174 deg at 909 m AGL (lon -100.5)"
+     "detail": "max low-level wind 58 km/h from 182 deg at 515 m AGL (lon -99.5)"
     },
     {
      "no": 3,
@@ -262,14 +213,63 @@ window.WX_VERDICT = {
    "yes": 2,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 60,
+   "jet_kmh": 58,
    "course": null,
-   "jet_to": 354,
+   "jet_to": 2,
+   "tail_kmh": null
+  },
+  {
+   "date": "2026-07-18",
+   "hour": 12,
+   "checks": [
+    {
+     "no": 1,
+     "name": "pattern",
+     "passed": true,
+     "detail": "west-to-east MSLP rise +4.0 hPa -> lee trough in the west"
+    },
+    {
+     "no": 2,
+     "name": "river",
+     "passed": true,
+     "detail": "max low-level wind 61 km/h from 187 deg at 757 m AGL (lon -101.5)"
+    },
+    {
+     "no": 3,
+     "name": "lid",
+     "passed": false,
+     "detail": "no capping inversion found"
+    },
+    {
+     "no": 4,
+     "name": "hold",
+     "passed": false,
+     "detail": "no lid - not evaluated"
+    },
+    {
+     "no": 5,
+     "name": "fuel",
+     "passed": false,
+     "detail": "no lid - not evaluated"
+    },
+    {
+     "no": 6,
+     "name": "longitude",
+     "passed": false,
+     "detail": "no clear surface moisture gradient - boundary position uncertain"
+    }
+   ],
+   "yes": 2,
+   "verdict": "pattern not present",
+   "start_lon": null,
+   "jet_kmh": 61,
+   "course": null,
+   "jet_to": 7,
    "tail_kmh": null
   }
  ]
 };
-window.WX_HISTORY = {"entries":[{"run":"2026-07-06","date":"2026-07-06","lead":0,"checks":[false,true,false,false,false,false],"yes":1,"jet_kmh":40,"start_lon":null},{"run":"2026-07-07","date":"2026-07-07","lead":0,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":27,"start_lon":null},{"run":"2026-07-06","date":"2026-07-07","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":43,"start_lon":null},{"run":"2026-07-08","date":"2026-07-08","lead":0,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":46,"start_lon":null},{"run":"2026-07-07","date":"2026-07-08","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":48,"start_lon":null},{"run":"2026-07-06","date":"2026-07-08","lead":2,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":49,"start_lon":null},{"run":"2026-07-09","date":"2026-07-09","lead":0,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":55,"start_lon":null},{"run":"2026-07-08","date":"2026-07-09","lead":1,"checks":[true,true,false,false,false,true],"yes":3,"jet_kmh":63,"start_lon":-101.0},{"run":"2026-07-07","date":"2026-07-09","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":63,"start_lon":null},{"run":"2026-07-06","date":"2026-07-09","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":58,"start_lon":null},{"run":"2026-07-10","date":"2026-07-10","lead":0,"checks":[true,true,false,false,true,false],"yes":3,"jet_kmh":50,"start_lon":null},{"run":"2026-07-09","date":"2026-07-10","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":56,"start_lon":null},{"run":"2026-07-08","date":"2026-07-10","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":54,"start_lon":null},{"run":"2026-07-07","date":"2026-07-10","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":69,"start_lon":null},{"run":"2026-07-06","date":"2026-07-10","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":66,"start_lon":null},{"run":"2026-07-11","date":"2026-07-11","lead":0,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":36,"start_lon":null},{"run":"2026-07-10","date":"2026-07-11","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":36,"start_lon":null},{"run":"2026-07-09","date":"2026-07-11","lead":2,"checks":[true,false,false,true,true,false],"yes":3,"jet_kmh":39,"start_lon":null},{"run":"2026-07-08","date":"2026-07-11","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":48,"start_lon":null},{"run":"2026-07-07","date":"2026-07-11","lead":4,"checks":[true,true,false,true,true,false],"yes":4,"jet_kmh":56,"start_lon":null},{"run":"2026-07-12","date":"2026-07-12","lead":0,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":38,"start_lon":null},{"run":"2026-07-11","date":"2026-07-12","lead":1,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":36,"start_lon":null},{"run":"2026-07-10","date":"2026-07-12","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":37,"start_lon":null},{"run":"2026-07-09","date":"2026-07-12","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":30,"start_lon":null},{"run":"2026-07-08","date":"2026-07-12","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":45,"start_lon":null},{"run":"2026-07-13","date":"2026-07-13","lead":0,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":24,"start_lon":null},{"run":"2026-07-12","date":"2026-07-13","lead":1,"checks":[false,false,false,false,false,true],"yes":1,"jet_kmh":26,"start_lon":-101.0},{"run":"2026-07-11","date":"2026-07-13","lead":2,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":30,"start_lon":null},{"run":"2026-07-10","date":"2026-07-13","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":33,"start_lon":null},{"run":"2026-07-09","date":"2026-07-13","lead":4,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":29,"start_lon":null},{"run":"2026-07-13","date":"2026-07-14","lead":1,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":20,"start_lon":null},{"run":"2026-07-12","date":"2026-07-14","lead":2,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":22,"start_lon":null},{"run":"2026-07-11","date":"2026-07-14","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":33,"start_lon":null},{"run":"2026-07-10","date":"2026-07-14","lead":4,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":37,"start_lon":null},{"run":"2026-07-13","date":"2026-07-15","lead":2,"checks":[true,false,false,false,false,true],"yes":2,"jet_kmh":34,"start_lon":-99.0},{"run":"2026-07-12","date":"2026-07-15","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":22,"start_lon":null},{"run":"2026-07-11","date":"2026-07-15","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":40,"start_lon":null},{"run":"2026-07-13","date":"2026-07-16","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":38,"start_lon":null},{"run":"2026-07-12","date":"2026-07-16","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":40,"start_lon":null},{"run":"2026-07-13","date":"2026-07-17","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":60,"start_lon":null}]};
+window.WX_HISTORY = {"entries":[{"run":"2026-07-06","date":"2026-07-06","lead":0,"checks":[false,true,false,false,false,false],"yes":1,"jet_kmh":40,"start_lon":null},{"run":"2026-07-07","date":"2026-07-07","lead":0,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":27,"start_lon":null},{"run":"2026-07-06","date":"2026-07-07","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":43,"start_lon":null},{"run":"2026-07-08","date":"2026-07-08","lead":0,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":46,"start_lon":null},{"run":"2026-07-07","date":"2026-07-08","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":48,"start_lon":null},{"run":"2026-07-06","date":"2026-07-08","lead":2,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":49,"start_lon":null},{"run":"2026-07-09","date":"2026-07-09","lead":0,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":55,"start_lon":null},{"run":"2026-07-08","date":"2026-07-09","lead":1,"checks":[true,true,false,false,false,true],"yes":3,"jet_kmh":63,"start_lon":-101.0},{"run":"2026-07-07","date":"2026-07-09","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":63,"start_lon":null},{"run":"2026-07-06","date":"2026-07-09","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":58,"start_lon":null},{"run":"2026-07-10","date":"2026-07-10","lead":0,"checks":[true,true,false,false,true,false],"yes":3,"jet_kmh":50,"start_lon":null},{"run":"2026-07-09","date":"2026-07-10","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":56,"start_lon":null},{"run":"2026-07-08","date":"2026-07-10","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":54,"start_lon":null},{"run":"2026-07-07","date":"2026-07-10","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":69,"start_lon":null},{"run":"2026-07-06","date":"2026-07-10","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":66,"start_lon":null},{"run":"2026-07-11","date":"2026-07-11","lead":0,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":36,"start_lon":null},{"run":"2026-07-10","date":"2026-07-11","lead":1,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":36,"start_lon":null},{"run":"2026-07-09","date":"2026-07-11","lead":2,"checks":[true,false,false,true,true,false],"yes":3,"jet_kmh":39,"start_lon":null},{"run":"2026-07-08","date":"2026-07-11","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":48,"start_lon":null},{"run":"2026-07-07","date":"2026-07-11","lead":4,"checks":[true,true,false,true,true,false],"yes":4,"jet_kmh":56,"start_lon":null},{"run":"2026-07-12","date":"2026-07-12","lead":0,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":38,"start_lon":null},{"run":"2026-07-11","date":"2026-07-12","lead":1,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":36,"start_lon":null},{"run":"2026-07-10","date":"2026-07-12","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":37,"start_lon":null},{"run":"2026-07-09","date":"2026-07-12","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":30,"start_lon":null},{"run":"2026-07-08","date":"2026-07-12","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":45,"start_lon":null},{"run":"2026-07-13","date":"2026-07-13","lead":0,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":24,"start_lon":null},{"run":"2026-07-12","date":"2026-07-13","lead":1,"checks":[false,false,false,false,false,true],"yes":1,"jet_kmh":26,"start_lon":-101.0},{"run":"2026-07-11","date":"2026-07-13","lead":2,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":30,"start_lon":null},{"run":"2026-07-10","date":"2026-07-13","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":33,"start_lon":null},{"run":"2026-07-09","date":"2026-07-13","lead":4,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":29,"start_lon":null},{"run":"2026-07-14","date":"2026-07-14","lead":0,"checks":[false,false,false,false,false,false],"yes":0,"jet_kmh":21,"start_lon":null},{"run":"2026-07-13","date":"2026-07-14","lead":1,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":20,"start_lon":null},{"run":"2026-07-12","date":"2026-07-14","lead":2,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":22,"start_lon":null},{"run":"2026-07-11","date":"2026-07-14","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":33,"start_lon":null},{"run":"2026-07-10","date":"2026-07-14","lead":4,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":37,"start_lon":null},{"run":"2026-07-14","date":"2026-07-15","lead":1,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":27,"start_lon":null},{"run":"2026-07-13","date":"2026-07-15","lead":2,"checks":[true,false,false,false,false,true],"yes":2,"jet_kmh":34,"start_lon":-99.0},{"run":"2026-07-12","date":"2026-07-15","lead":3,"checks":[true,false,false,false,false,false],"yes":1,"jet_kmh":22,"start_lon":null},{"run":"2026-07-11","date":"2026-07-15","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":40,"start_lon":null},{"run":"2026-07-14","date":"2026-07-16","lead":2,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":46,"start_lon":null},{"run":"2026-07-13","date":"2026-07-16","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":38,"start_lon":null},{"run":"2026-07-12","date":"2026-07-16","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":40,"start_lon":null},{"run":"2026-07-14","date":"2026-07-17","lead":3,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":58,"start_lon":null},{"run":"2026-07-13","date":"2026-07-17","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":60,"start_lon":null},{"run":"2026-07-14","date":"2026-07-18","lead":4,"checks":[true,true,false,false,false,false],"yes":2,"jet_kmh":61,"start_lon":null}]};
 /*WX_DATA_END*/
 </script>
 <script>
