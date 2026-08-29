@@ -282,8 +282,8 @@ window.WX_HISTORY = {"entries":[{"run":"2026-07-06","date":"2026-07-06","lead":0
         box.innerHTML = 'No automated verdict published yet — the check runs once daily at 09:30 UTC.';
         return;
       }
-      const NAMES=['pattern','river','lid','hold','fuel','longitude'];
-      const cell=15, colW=44, left=92, top=32, rowH=cell+4;
+      const NAMES=['pattern','river','lid','hold','fuel','dryline found'];
+      const cell=15, colW=44, left=118, top=32, rowH=cell+4;
       const W=left+j.results.length*colW+6, H=top+6*rowH+74;
       let g='<svg viewBox="0 0 '+W+' '+H+'" style="width:'+W+'px;max-width:100%;height:auto;display:block;margin-top:10px" xmlns="http://www.w3.org/2000/svg">';
       j.results.forEach((r,i)=>{
@@ -329,14 +329,14 @@ window.WX_HISTORY = {"entries":[{"run":"2026-07-06","date":"2026-07-06","lead":0
     const box = document.getElementById('histBox');
     (window.WX_HISTORY ? Promise.resolve(window.WX_HISTORY) : fetch('history.json').then(r=>r.ok?r.json():null).catch(()=>null)).then(h=>{
       if(!h || !h.entries || !h.entries.length) return;
-      const NAMES=['pattern','river','lid','hold','fuel','longitude'];
+      const NAMES=['pattern','river','lid','hold','fuel','dryline found'];
       const LEADS=[[0,'HISTORY \u00b7 ASSESSED ON THE MORNING ITSELF (D0)'],
                    [1,'HISTORY \u00b7 ASSESSED ONE DAY AHEAD (D+1)'],
                    [2,'HISTORY \u00b7 ASSESSED TWO DAYS AHEAD (D+2)']];
       const byLead={0:{},1:{},2:{}};
       h.entries.forEach(e=>{ if(byLead[e.lead]!==undefined) byLead[e.lead][e.date]=e; });
       const dates=[...new Set(h.entries.map(e=>e.date))].sort().slice(-70);
-      const cell=9, gap=2, left=92, top=18, rowH=cell+gap;
+      const cell=9, gap=2, left=118, top=18, rowH=cell+gap;
       function panel(lead,title){
         const W=left+dates.length*(cell+gap)+8, H=top+6*rowH+26;
         let s='<svg viewBox="0 0 '+W+' '+H+'" style="width:'+W+'px;max-width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg">';

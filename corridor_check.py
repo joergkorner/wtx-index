@@ -182,7 +182,7 @@ def tail_from(drct, spd):
     return -spd*math.cos(math.radians(drct))
 
 # ---------------- the six checks ----------------
-NAMES = {1:"pattern", 2:"river", 3:"lid", 4:"hold", 5:"fuel", 6:"longitude"}
+NAMES = {1:"pattern", 2:"river", 3:"lid", 4:"hold", 5:"fuel", 6:"dryline found"}
 
 def run(day, hour, collect=None):
     print(f"\nDRYLINE CHECK — {day}, profiles at {hour:02d}Z")
@@ -192,7 +192,7 @@ def run(day, hour, collect=None):
     def add(no, passed, detail):
         ok[no] = bool(passed)
         checks.append(dict(no=no, name=NAMES[no], passed=bool(passed), detail=detail))
-        print(f"{no} {NAMES[no].upper():<9} {detail}  {'YES' if passed else 'NO'}")
+        print(f"{no} {NAMES[no].upper():<13} {detail}  {'YES' if passed else 'NO'}")
 
     # fetch mid-corridor column set at three latitudes (west->east)
     grid = {}
