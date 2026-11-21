@@ -1,27 +1,27 @@
 {
- "generated": "2026-11-20T17:56+00:00",
+ "generated": "2026-11-21T16:56+00:00",
  "results": [
   {
-   "date": "2026-11-20",
+   "date": "2026-11-21",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
      "passed": true,
-     "detail": "west-to-east MSLP rise +5.7 hPa -> lee trough in the west"
+     "detail": "west-to-east MSLP rise +4.6 hPa -> lee trough in the west"
     },
     {
      "no": 2,
      "name": "river",
      "passed": true,
-     "detail": "max low-level wind 56 km/h from 188 deg at 496 m AGL (lon -101.5)"
+     "detail": "max low-level wind 66 km/h from 189 deg at 432 m AGL (lon -101.5)"
     },
     {
      "no": 3,
      "name": "lid",
      "passed": false,
-     "detail": "inversion at 739 m AGL - outside the 1200-2800 m working band"
+     "detail": "inversion at 678 m AGL - outside the 1200-2800 m working band"
     },
     {
      "no": 4,
@@ -33,7 +33,7 @@
      "no": 5,
      "name": "fuel",
      "passed": true,
-     "detail": "buoyancy below the lid ~229 J/kg -> thermals"
+     "detail": "buoyancy below the lid ~358 J/kg -> thermals"
     },
     {
      "no": 6,
@@ -45,44 +45,93 @@
    "yes": 4,
    "verdict": "4-5/6 - inspect the soundings",
    "start_lon": null,
-   "jet_kmh": 56,
+   "jet_kmh": 66,
    "course": null,
-   "jet_to": 8,
+   "jet_to": 9,
    "tail_kmh": null
   },
   {
-   "date": "2026-11-21",
+   "date": "2026-11-22",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
-     "passed": true,
-     "detail": "west-to-east MSLP rise +4.3 hPa -> lee trough in the west"
+     "passed": false,
+     "detail": "west-to-east MSLP rise -4.0 hPa -> no trough signal"
     },
     {
      "no": 2,
      "name": "river",
-     "passed": true,
-     "detail": "max low-level wind 70 km/h from 195 deg at 440 m AGL (lon -101.5)"
+     "passed": false,
+     "detail": "max low-level wind 52 km/h from 23 deg at 342 m AGL (lon -102.5) - want >=35 km/h from 140-220 deg"
     },
     {
      "no": 3,
      "name": "lid",
      "passed": false,
-     "detail": "no capping inversion found"
+     "detail": "inversion at 824 m AGL - outside the 1200-2800 m working band"
     },
     {
      "no": 4,
      "name": "hold",
-     "passed": false,
-     "detail": "no lid - not evaluated"
+     "passed": true,
+     "detail": "CAPE above the lid ~43 J/kg -> gun not loaded"
     },
     {
      "no": 5,
      "name": "fuel",
+     "passed": true,
+     "detail": "buoyancy below the lid ~548 J/kg -> thermals"
+    },
+    {
+     "no": 6,
+     "name": "dryline found",
+     "passed": true,
+     "detail": "boundary near -100.0 deg -> start the line around -99.0 deg"
+    }
+   ],
+   "yes": 3,
+   "verdict": "pattern not present",
+   "start_lon": -99.0,
+   "jet_kmh": 52,
+   "course": 35,
+   "jet_to": 203,
+   "tail_kmh": -51
+  },
+  {
+   "date": "2026-11-23",
+   "hour": 12,
+   "checks": [
+    {
+     "no": 1,
+     "name": "pattern",
      "passed": false,
-     "detail": "no lid - not evaluated"
+     "detail": "west-to-east MSLP rise -0.8 hPa -> no trough signal"
+    },
+    {
+     "no": 2,
+     "name": "river",
+     "passed": false,
+     "detail": "max low-level wind 40 km/h from 23 deg at 472 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
+    },
+    {
+     "no": 3,
+     "name": "lid",
+     "passed": false,
+     "detail": "inversion at 695 m AGL - outside the 1200-2800 m working band"
+    },
+    {
+     "no": 4,
+     "name": "hold",
+     "passed": true,
+     "detail": "CAPE above the lid ~7 J/kg -> gun not loaded"
+    },
+    {
+     "no": 5,
+     "name": "fuel",
+     "passed": true,
+     "detail": "buoyancy below the lid ~193 J/kg -> thermals"
     },
     {
      "no": 6,
@@ -94,81 +143,32 @@
    "yes": 2,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 70,
+   "jet_kmh": 40,
    "course": null,
-   "jet_to": 15,
+   "jet_to": 203,
    "tail_kmh": null
   },
   {
-   "date": "2026-11-22",
+   "date": "2026-11-24",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
      "passed": false,
-     "detail": "west-to-east MSLP rise -4.7 hPa -> no trough signal"
+     "detail": "west-to-east MSLP rise +0.8 hPa -> no trough signal"
     },
     {
      "no": 2,
      "name": "river",
      "passed": false,
-     "detail": "max low-level wind 53 km/h from 269 deg at 329 m AGL (lon -102.5) - want >=35 km/h from 140-220 deg"
-    },
-    {
-     "no": 3,
-     "name": "lid",
-     "passed": false,
-     "detail": "no capping inversion found"
-    },
-    {
-     "no": 4,
-     "name": "hold",
-     "passed": false,
-     "detail": "no lid - not evaluated"
-    },
-    {
-     "no": 5,
-     "name": "fuel",
-     "passed": false,
-     "detail": "no lid - not evaluated"
-    },
-    {
-     "no": 6,
-     "name": "dryline found",
-     "passed": true,
-     "detail": "boundary near -99.0 deg -> start the line around -98.0 deg"
-    }
-   ],
-   "yes": 1,
-   "verdict": "pattern not present",
-   "start_lon": -98.0,
-   "jet_kmh": 53,
-   "course": 17,
-   "jet_to": 89,
-   "tail_kmh": 16
-  },
-  {
-   "date": "2026-11-23",
-   "hour": 12,
-   "checks": [
-    {
-     "no": 1,
-     "name": "pattern",
-     "passed": false,
-     "detail": "west-to-east MSLP rise -0.1 hPa -> no trough signal"
-    },
-    {
-     "no": 2,
-     "name": "river",
-     "passed": false,
-     "detail": "max low-level wind 34 km/h from 20 deg at 456 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
+     "detail": "max low-level wind 33 km/h from 58 deg at 482 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
     },
     {
      "no": 3,
      "name": "lid",
      "passed": true,
-     "detail": "capping inversion at 1911 m AGL"
+     "detail": "capping inversion at 1415 m AGL"
     },
     {
      "no": 4,
@@ -179,8 +179,8 @@
     {
      "no": 5,
      "name": "fuel",
-     "passed": true,
-     "detail": "buoyancy below the lid ~180 J/kg -> thermals"
+     "passed": false,
+     "detail": "buoyancy below the lid ~51 J/kg -> weak or blue"
     },
     {
      "no": 6,
@@ -189,47 +189,47 @@
      "detail": "no clear surface moisture gradient - boundary position uncertain"
     }
    ],
-   "yes": 3,
+   "yes": 2,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 34,
+   "jet_kmh": 33,
    "course": null,
-   "jet_to": 200,
+   "jet_to": 238,
    "tail_kmh": null
   },
   {
-   "date": "2026-11-24",
+   "date": "2026-11-25",
    "hour": 12,
    "checks": [
     {
      "no": 1,
      "name": "pattern",
-     "passed": true,
-     "detail": "west-to-east MSLP rise +2.4 hPa -> lee trough in the west"
+     "passed": false,
+     "detail": "west-to-east MSLP rise -1.1 hPa -> no trough signal"
     },
     {
      "no": 2,
      "name": "river",
      "passed": false,
-     "detail": "max low-level wind 36 km/h from 235 deg at 969 m AGL (lon -101.5) - want >=35 km/h from 140-220 deg"
+     "detail": "max low-level wind 42 km/h from 345 deg at 494 m AGL (lon -98.5) - want >=35 km/h from 140-220 deg"
     },
     {
      "no": 3,
      "name": "lid",
      "passed": false,
-     "detail": "no capping inversion found"
+     "detail": "inversion at 714 m AGL - outside the 1200-2800 m working band"
     },
     {
      "no": 4,
      "name": "hold",
-     "passed": false,
-     "detail": "no lid - not evaluated"
+     "passed": true,
+     "detail": "CAPE above the lid ~27 J/kg -> gun not loaded"
     },
     {
      "no": 5,
      "name": "fuel",
-     "passed": false,
-     "detail": "no lid - not evaluated"
+     "passed": true,
+     "detail": "buoyancy below the lid ~179 J/kg -> thermals"
     },
     {
      "no": 6,
@@ -238,12 +238,12 @@
      "detail": "no clear surface moisture gradient - boundary position uncertain"
     }
    ],
-   "yes": 1,
+   "yes": 2,
    "verdict": "pattern not present",
    "start_lon": null,
-   "jet_kmh": 36,
+   "jet_kmh": 42,
    "course": null,
-   "jet_to": 55,
+   "jet_to": 165,
    "tail_kmh": null
   }
  ]
